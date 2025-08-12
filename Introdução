@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class recursivo {
+    public static void main(String[] args){
+        int numeroNatural;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Insira um número natural: ");
+        numeroNatural = scanner.nextInt();
+        if(numeroNatural<0){
+            System.out.println("A solução não suporta números negativos.");
+        }
+        else{
+            contarRegressivamenteRecursivo(numeroNatural);
+        }
+        scanner.close();
+    }
+
+
+    public static void contarRegressivamenteRecursivo(int n){
+        if(n == 0){
+            return;
+        }
+        System.out.println(n);
+        contarRegressivamenteRecursivo(n-1);
+    }
+
+    public static int converterParaNaturalRecursivo(int n, Scanner scanner){
+        if(n>0){
+            return n;
+        }
+        System.out.println("A solução não suporta valores negativos. Tente novamente: ");
+        n = scanner.nextInt();
+        return converterParaNaturalRecursivo(n, scanner);
+    }
+}
